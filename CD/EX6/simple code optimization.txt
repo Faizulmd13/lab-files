@@ -1,0 +1,106 @@
+//Implement simple code optimization techniques
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+struct op {
+    char l;
+    char r[20];
+};
+
+struct op ops[10], pr[10];
+int n;
+
+void removeDeadCode() {
+    int i, j, z = 0;
+    for (i = 0; i < n; i++) {
+        char temp = ops[i].l;
+        int isDead = 1;
+
+        for (j = i + 1; j < n; j++) {
+            if (temp == ops[j].l) {
+                isDead = 0;
+                break;
+            }
+        }
+
+        if (isDead) {
+            pr[z] = ops[i];
+            z++;
+        }
+    }
+    n = z;
+}
+
+void eliminateCommonExpression() {
+    int i, j;
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (strcmp(pr[i].r, pr[j].r) == 0) {
+                pr[j].l = '\0';  // mark as redundant
+            }
+        }
+    }
+}
+
+int main() {
+    int i, j, m;
+    char *tem, *p, *l;
+
+    printf("Enter the Number of Values: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("left: ");
+        scanf(" %c", &ops[i].l);
+        printf("\tright: ");
+        scanf("%s", ops[i].r);
+    }
+
+    printf("\nIntermediate Code\n");
+    for (i = 0; i < n; i++) {
+        printf("%c = %s\n", ops[i].l, ops[i].r);
+    }
+
+    removeDeadCode();
+    printf("\nAfter Dead Code Elimination\n");
+    for (j = 0; j < n; j++) {
+        printf("%c = %s\n", pr[j].l, pr[j].r);
+    }
+
+    // algebraic substitution
+    for (m = 0; m < n; m++) {
+        tem = pr[m].r;
+        for (j = m + 1; j < n; j++) {
+            p = strstr(tem, pr[j].r);
+            if (p) {
+                char t = pr[j].l;
+                pr[j].l = pr[m].l;
+                for (i = 0; i < n; i++) {
+                    l = strchr(pr[i].r, t);
+                    if (l) {
+                        int a = l - pr[i].r;
+                        pr[i].r[a] = pr[m].l;
+                    }
+                }
+            }
+        }
+    }
+
+    eliminateCommonExpression();
+    printf("\nAfter Eliminating Common Expressions\n");
+    for (i = 0; i < n; i++) {
+        if (pr[i].l != '\0') {
+            printf("%c = %s\n", pr[i].l, pr[i].r);
+        }
+    }
+    return 0;
+}
+
+
+
+Execution:
+gcc codeoptimization.c -o code
+./code
