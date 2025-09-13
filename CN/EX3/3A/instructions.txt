@@ -1,4 +1,4 @@
-EX3 - Echo Client-Server (Quick Lab Sheet)
+EX3A - Echo Client-Server (Quick Lab Sheet)
 ==========================================
 
 # Requirements

@@ -5,12 +5,12 @@ This folder contains the Computer Networks laboratory experiments. Each experime
 ---
 
 ## 📂 Folder Structure
-- [**EX1**](./EX1) 
-- [**EX2**](./EX2)
-- [**EX3A**](./EX3/3A) 
-- [**EX3B**](./EX3/3B)
-- [**EX4**](./EX4) 
-- [**EX5**](./EX5)
+- [**EX1**](./EX1) → Network Analysis & Packet Capture 
+- [**EX2**](./EX2) → Client-Server Image Transfer
+- [**EX3A**](./EX3/3A) → Echo Client-Server
+- [**EX3B**](./EX3/3B) → UDP Chat Server & Client Execution
+- [**EX4**](./EX4) → UDP DNS Server & Client
+- [**EX5**](./EX5) → Wireshark Packet Analysis
 
 ---
 
