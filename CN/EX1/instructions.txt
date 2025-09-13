@@ -1,0 +1,94 @@
+EX1 - Network Analysis & Packet Capture (Quick Lab Sheet)
+=========================================================
+
+# Part 1: Install Required Tools
+
+## Linux (Ubuntu/Debian)
+sudo apt update
+sudo apt install tcpdump net-tools traceroute -y
+
+## Windows
+# tcpdump equivalent: Wireshark (Install via https://www.wireshark.org/)
+# netstat and tracert are built-in
+
+---
+
+# Part 2: Packet Capture
+
+## Linux - tcpdump
+# Grant permissions (optional, allows running without sudo)
+sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/tcpdump
+
+# Capture packets between two hosts
+tcpdump host 192.168.1.1 and host 192.168.1.2
+# Capture packets for specific ports
+tcpdump src port ftp
+tcpdump dst port http
+
+## Windows
+# Use Wireshark GUI to capture packets on the active network interface
+# Filter examples:
+# ip.addr==192.168.1.1 && ip.addr==192.168.1.2
+# tcp.port==21 (FTP)
+# tcp.port==80 (HTTP)
+
+---
+
+# Part 3: View Active Connections
+
+## Linux
+netstat
+# Optional: netstat -tulnp for detailed info
+
+## Windows
+netstat
+
+---
+
+# Part 4: View Network Interfaces
+
+## Linux
+ifconfig
+
+## Windows
+ipconfig /all
+
+---
+
+# Part 5: DNS Lookup
+
+## Linux
+nslookup google.com
+
+## Windows
+nslookup google.com
+
+---
+
+# Part 6: Trace Network Route
+
+## Linux
+traceroute google.com
+
+## Windows
+tracert google.com
+
+---
+
+# Part 7: Ping Host
+
+## Linux
+ping 172.16.6.2
+# Press Ctrl+C to stop
+
+## Windows
+ping 172.16.6.2
+# Press Ctrl+C to stop
+
+---
+
+# Notes:
+- Use sudo on Linux if permissions are denied.
+- Ctrl+C stops long-running commands (ping, tcpdump).
+- Sample outputs may vary depending on network environment.
+

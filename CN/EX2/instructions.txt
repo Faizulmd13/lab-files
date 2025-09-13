@@ -1,0 +1,36 @@
+EX2 - Client-Server Image Transfer (Quick Lab Sheet)
+====================================================
+
+# Requirements
+- Java JDK installed
+- Image file (digital_image_processing.jpg) in same folder as Client.java
+- Terminal/Command Prompt
+
+---
+
+# Part 1: Compile
+javac Server.java
+javac Client.java
+# Filenames must match public class names (case-sensitive)
+
+---
+
+# Part 2: Run (Simultaneously)
+# Terminal 1: Start server
+java Server
+# Output: "Server Waiting for image"
+
+# Terminal 2: Start client
+java Client
+# Output: "Image sent to server"
+
+# Server GUI will display the received image
+
+---
+
+# Notes
+- Server must run before Client
+- Use Ctrl+C to stop programs
+- Windows: Open two Command Prompt windows for server & client
+- Ensure image file path matches actual file
+

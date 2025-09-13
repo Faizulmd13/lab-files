@@ -1,0 +1,40 @@
+EX3 - Echo Client-Server (Quick Lab Sheet)
+==========================================
+
+# Requirements
+- Java JDK installed
+- Terminal/Command Prompt
+
+---
+
+# Part 1: Compile
+javac EServer.java
+# Note: Deprecated API warnings are normal
+
+javac EClient.java
+# Note: Deprecated API warnings are normal
+
+---
+
+# Part 2: Run (Simultaneously)
+# Terminal 1: Start server
+java EServer
+
+# Terminal 2: Start client
+java EClient
+# Sample interaction:
+# Client: Hello
+# Server: Hello
+# Client: Hi
+# Server: Hi
+# Client: Bye
+# Server: null
+
+---
+
+# Notes
+- Server must run before Client
+- Ctrl+C to stop programs
+- Windows: Open two Command Prompt windows for server & client
+- EServer listens on port 9000; EClient connects to same port
+

@@ -1,0 +1,44 @@
+EX5 - UDP Chat Server & Client Execution
+========================================
+
+# 1. Save Files
+- Save server code as: UDPServer.java
+- Save client code as: UDPclient.java
+- Ensure filenames match public class names exactly (case-sensitive)
+
+---
+
+# 2. Compile
+javac UDPServer.java
+javac UDPclient.java
+
+---
+
+# 3. Run Programs (Simultaneously)
+# Terminal 1: Start server
+java UDPServer
+# Output: "press ctrl+c to quit the program"
+
+# Terminal 2: Start client
+java UDPclient
+# Output: "server waiting"
+
+---
+
+# 4. Chat Example
+- Client types: Hello
+- Server sees: Client: Hello
+- Server replies: Hi there
+- Client sees: Server: Hi there
+- Type "end" on either side to terminate
+
+---
+
+# 5. Notes
+- Server listens on port 789, client listens on port 790
+- Both programs must run simultaneously
+- Ctrl+C can also be used to stop programs
+- Windows: Use two Command Prompt windows, one for server and one for client
+- Make sure both programs are in the same directory
+- Keep the messages shorter
+

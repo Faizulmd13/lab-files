@@ -1,0 +1,43 @@
+EX4 - UDP DNS Server & Client (Quick Lab Sheet)
+================================================
+
+# Requirements
+- Java JDK installed
+- Terminal/Command Prompt
+
+---
+
+# Part 1: Save Files
+- Save server as: udpdnsserver.java
+- Save client as: udpclient.java
+- Ensure filenames match the public class names exactly (case-sensitive)
+
+---
+
+# Part 2: Compile
+javac udpdnsserver.java
+javac udpclient.java
+
+---
+
+# Part 3: Run (Simultaneously)
+# Terminal 1: Start server
+java udpdnsserver
+# Output: "UDP DNS Server is running on port 1362..."
+
+# Terminal 2: Start client
+java udpclient
+# Enter hostnames to query (type 'exit' to quit)
+# Example interaction:
+# Host: yahoo.com
+# Server response: 68.180.206.184
+
+---
+
+# Notes
+- Server must run before client
+- Ctrl+C to stop programs
+- Windows: Use two Command Prompt windows for server & client
+- UDP server listens on port 1362
+- Only hostnames in server array will return IPs; others return "Host Not Found"
+

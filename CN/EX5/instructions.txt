@@ -1,0 +1,60 @@
+EX5 - Wireshark Packet Analysis
+===============================
+
+Platform: Cross-Platform (Linux / Windows / Mac)
+
+---
+
+# 1️⃣ Installation
+
+## Linux (Ubuntu/Debian)
+1. Open Terminal (Ctrl+Alt+T)
+2. Update packages:
+   sudo apt update
+3. Install Wireshark:
+   sudo apt install wireshark
+4. Allow non-root users to capture packets:
+   sudo dpkg-reconfigure wireshark-common
+   → Select "Yes" when prompted
+5. Add your user to the wireshark group:
+   sudo usermod -aG wireshark $USER
+6. Log out and log back in (or reboot)
+7. Launch Wireshark:
+   wireshark
+
+## Windows
+1. Download the installer from: https://www.wireshark.org/download.html
+2. Run the installer and select **default options**
+3. Install **Npcap** when prompted (required for capturing packets)
+4. Launch Wireshark from Start Menu
+
+---
+
+# 2️⃣ Capturing Packets
+1. Select the network interface you want to monitor (Wi-Fi/Ethernet)
+2. Click the **Start Capturing** button
+3. Observe live packets appearing in the list
+
+---
+
+# 3️⃣ Using Filters
+- `tcp` → Show only TCP packets
+- `udp` → Show only UDP packets
+- `http` → Show only HTTP traffic
+- You can combine filters, e.g., `tcp and http`
+
+---
+
+# 4️⃣ Analyzing Packets
+1. Click a packet in the capture list
+2. Examine detailed headers and payload in the **Packet Details Pane**
+3. Right-click packets for additional options (Follow TCP Stream, etc.)
+
+---
+
+# 5️⃣ Notes
+- On Linux, **do not run Wireshark as root**; use the wireshark group method
+- On Windows, Npcap handles permissions automatically
+- Capture traffic safely on networks you have permission to monitor
+- Stop capturing with the **red square Stop button**
+
