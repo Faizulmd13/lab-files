@@ -64,9 +64,3 @@ Each experiment folder typically contains:
 - For client-server programs, start the server before the client.
 
 ---
-
-## ✅ Recommendation
-- Always run these in a Linux environment for smooth execution.  
-- Use the text file inside each experiment folder for input/output examples.  
-
----
