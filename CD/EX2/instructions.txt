@@ -1,0 +1,61 @@
+# Lexical Analyzer using Lex/Flex (Quick Lab Sheet)
+=========================================================
+
+# Requirements
+- Flex installed (Linux/Mac) or Windows with Cygwin/WSL  
+- GCC installed  
+- Terminal/Command Prompt  
+- `input.txt` file present in the same directory
+
+---
+
+# Part 1: Compile
+flex lexical.l
+gcc lex.yy.c -o lexer
+
+---
+
+# Part 2: Run
+./lexer
+
+---
+
+# Sample Terminal Execution
+
+$ flex lexical.l
+$ gcc lex.yy.c -o lexer
+$ ./lexer
+
+int => Keyword
+main => Function
+( => Special Character
+) => Special Character
+{ => Special Character
+int => Keyword
+a => Identifier
+, => Special Character
+b => Identifier
+; => Special Character
+printf => Function
+"hello" => String
+; => Special Character
+float => Keyword
+c => Identifier
+; => Special Character
+char => Keyword
+d => Identifier
+; => Special Character
+return => Keyword
+0 => Number
+; => Special Character
+} => Special Character
+
+---
+
+# Notes
+- Ensure `input.txt` is in the same folder as `lexical.l`  
+- Flex generates `lex.yy.c` after running `flex lexical.l`  
+- GCC compiles `lex.yy.c` into an executable `lexer`  
+- The analyzer identifies keywords, identifiers, numbers, operators, strings, functions, special characters, and unknown symbols  
+- Ctrl+C can be used to stop the program if needed
+

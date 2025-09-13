@@ -1,0 +1,56 @@
+# Identifier Checker using Lex & Yacc (Quick Lab Sheet)
+=============================================================
+
+# Requirements
+- Flex and Bison/Yacc installed (Linux/Mac) or Windows with Cygwin/WSL  
+- GCC installed  
+- Terminal/Command Prompt  
+- `id.l` and `id.y` files in the same directory
+
+---
+
+# Part 1: Compile
+yacc -d id.y
+lex id.l
+gcc y.tab.c lex.yy.c -o identifier -lfl
+
+---
+
+# Part 2: Run
+./identifier
+
+---
+
+# Sample Terminal Execution
+
+$ yacc -d id.y
+$ lex id.l
+$ gcc y.tab.c lex.yy.c -o identifier -lfl
+$ ./identifier
+
+Enter a name to test for identifier: myVar123
+
+It is an identifier!
+
+$ ./identifier
+
+Enter a name to test for identifier: 123abc
+
+It is not an identifier!
+
+$ ./identifier
+
+Enter a name to test for identifier: _temp
+
+It is not an identifier!
+
+---
+
+# Notes
+- Run `yacc -d id.y` first to generate `y.tab.c` and `y.tab.h`  
+- Then run `lex id.l` to generate `lex.yy.c`  
+- Compile both with GCC using `-lfl` to link the Flex library  
+- The program checks whether the entered string is a valid identifier (must start with a letter and can contain letters/digits)  
+- Invalid identifiers will print `It is not an identifier!`  
+- Ctrl+C can be used to stop the program if needed
+

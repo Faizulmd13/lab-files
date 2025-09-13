@@ -1,0 +1,90 @@
+# Type Checking Lab Sheet
+===============================
+
+# Requirements
+- GCC installed (Linux/Mac/Windows with MinGW)  
+- Flex and Bison/Yacc installed (Linux/Mac or Windows with Cygwin/WSL)  
+- Terminal/Command Prompt  
+- `type-check.c`, `typecheck.l`, and `typecheck.y` files in the same directory
+
+---
+
+# Part 1: Using Standalone C Program
+
+## Compile
+gcc type-check.c -o type
+
+## Run
+./type
+
+## Sample Terminal Execution
+$ gcc type-check.c -o type
+$ ./type
+
+Enter the number of variables: 2
+Enter the variable[0]: a
+Enter the variable-type[0] (float-f, int-i): i
+Enter the variable[1]: b
+Enter the variable-type[1] (float-f, int-i): f
+Enter the Expression (end with $): a / b$
+
+The datatype is correctly defined..!
+
+---
+
+# Part 2: Using Lex & Yacc
+
+## Compile
+
+### Step 1: Generate parser from Yacc
+yacc -d typecheck.y
+
+### Step 2: Generate scanner from Lex
+lex typecheck.l
+
+### Step 3: Compile with GCC
+gcc y.tab.c lex.yy.c -o typecheck -lfl
+
+## Run
+./typecheck
+
+## Sample Terminal Execution
+$ yacc -d typecheck.y
+$ lex typecheck.l
+$ gcc y.tab.c lex.yy.c -o typecheck -lfl
+$ ./typecheck
+
+Enter declarations (int/float x) then expression:
+int a
+float b
+a + b
+
+Expression type: float
+
+$ ./typecheck
+
+Enter declarations (int/float x) then expression:
+int x
+int y
+x + y
+
+Expression type: int
+
+$ ./typecheck
+
+Enter declarations (int/float x) then expression:
+float m
+int n
+m / n
+
+Expression type: float
+
+---
+
+# Notes
+- For the standalone C program, input variables and types first, then enter an expression ending with `$`.  
+- For Lex/Yacc, first declare variables (`int` or `float`) one per line, then input the expression.  
+- Division `/` always produces a float type.  
+- Ctrl+C can be used to stop any program if needed.  
+- Lex/Yacc version provides structured parsing and automatic type evaluation, while the C program performs simple checks manually.  
+

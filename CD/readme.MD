@@ -33,8 +33,7 @@ sudo apt-get install libfl-dev
 
 Each experiment folder typically contains:
 - Source files (`.l`, `.y`, `.c`)  
-- A text file (providing inputs or explanations, varies by experiment)  
-- Precompiled executable (Linux-compatible, if generated earlier)  
+- A text file "instructions.txt" (providing inputs or explanations, varies by experiment)  
 
 ### General Execution Steps:
 1. Navigate to the experiment folder, e.g.:
@@ -62,14 +61,13 @@ Each experiment folder typically contains:
      ./program
      ```
                           
-3. Refer to the provided text file in each folder for sample inputs or notes.  
+3. Refer to the provided 'instructions.txt' in each folder for sample inputs or notes.  
 
 ---
 
 ## ⚠️ Note on Compatibility
 
 - These programs are tested on **Linux (Ubuntu/Mint)**.  
-- The executables are **not portable to Windows**.  
 - To run on Windows, you will need:
   - A Linux environment (WSL, Cygwin, or Virtual Machine), or  
   - Recompile the programs inside Windows using compatible Lex/Yacc tools.  

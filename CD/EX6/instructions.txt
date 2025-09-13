@@ -1,0 +1,67 @@
+# Simple Code Optimization (Quick Lab Sheet)
+===================================================
+
+# Requirements
+- GCC installed (Linux/Mac/Windows with MinGW)  
+- Terminal/Command Prompt  
+- `codeoptimization.c` file in the same directory
+
+---
+
+# Part 1: Compile
+gcc codeoptimization.c -o code
+
+---
+
+# Part 2: Run
+./code
+
+---
+
+# Sample Terminal Execution
+
+$ gcc codeoptimization.c -o code
+$ ./code
+
+Enter the Number of Values: 5
+left: a
+    right: b+c
+left: b
+    right: 2
+left: c
+    right: 3
+left: d
+    right: b+c
+left: e
+    right: a+d
+
+Intermediate Code
+a = b+c
+b = 2
+c = 3
+d = b+c
+e = a+d
+
+After Dead Code Elimination
+a = b+c
+b = 2
+c = 3
+e = a+d
+
+After Eliminating Common Expressions
+a = b+c
+b = 2
+c = 3
+e = a+a
+
+---
+
+# Notes
+- Enter the number of assignments first, then input the left-hand variable and right-hand expression for each line.  
+- The program performs:
+  1. **Dead Code Elimination** – removes assignments that are never used.  
+  2. **Common Subexpression Elimination** – removes redundant calculations.  
+  3. **Algebraic Substitution** – replaces repeated expressions with existing variable values.  
+- Ctrl+C can be used to stop the program if needed.  
+- Maximum 10 assignments are supported in this implementation.
+

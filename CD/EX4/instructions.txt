@@ -1,0 +1,63 @@
+# Three-Address Code Generator using Lex & Yacc (Quick Lab Sheet)
+========================================================================
+
+# Requirements
+- Flex and Bison/Yacc installed (Linux/Mac) or Windows with Cygwin/WSL  
+- GCC installed  
+- Terminal/Command Prompt  
+- `tac.l` and `tac.y` files in the same directory
+
+---
+
+# Part 1: Compile
+yacc -d tac.y
+lex tac.l
+gcc y.tab.c lex.yy.c -o tac -ll
+
+---
+
+# Part 2: Run
+./tac
+
+---
+
+# Sample Terminal Execution
+
+$ yacc -d tac.y
+$ lex tac.l
+$ gcc y.tab.c lex.yy.c -o tac -ll
+$ ./tac
+
+Enter the expression: a+b*c
+
+Three-address code:
+A := b * c
+B := a + A
+
+$ ./tac
+
+Enter the expression: (x+y)-z
+
+Three-address code:
+A := x + y
+B := A - z
+
+$ ./tac
+
+Enter the expression: p*q+r-s
+
+Three-address code:
+A := p * q
+B := A + r
+C := B - s
+
+---
+
+# Notes
+- Run `yacc -d tac.y` first to generate `y.tab.c` and `y.tab.h`  
+- Then run `lex tac.l` to generate `lex.yy.c`  
+- Compile both with GCC using `-ll` to link the Flex library  
+- The program generates three-address code for arithmetic expressions using temporary variables (`A`, `B`, `C`, …)  
+- Supports `+`, `-`, `*`, `/`, parentheses, letters, and numbers  
+- Ctrl+C can be used to stop the program if needed
+

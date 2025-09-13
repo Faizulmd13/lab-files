@@ -1,0 +1,68 @@
+# Target Code Generation (Quick Lab Sheet)
+=================================================
+
+# Requirements
+- GCC installed (Linux/Mac/Windows with MinGW)  
+- Terminal/Command Prompt  
+- `target.c` file in the same directory
+
+---
+
+# Part 1: Compile
+gcc target.c -o target
+
+---
+
+# Part 2: Run
+./target
+
+---
+
+# Sample Terminal Execution
+
+$ gcc target.c -o target
+$ ./target
+
+Enter the set of intermediate code (terminated by exit): 
+a=b+c
+b=2+3
+c=a-b
+exit
+
+Target code generation
+*************************
+    MOV R0, b
+    ADD R0, c
+    MOV a, R0
+    MOV R1, 2
+    ADD R1, 3
+    MOV b, R1
+    MOV R2, a
+    SUB R2, b
+    MOV c, R2
+
+$ ./target
+
+Enter the set of intermediate code (terminated by exit): 
+x=y*z
+y=2+5
+exit
+
+Target code generation
+*************************
+    MOV R0, y
+    MUL R0, z
+    MOV x, R0
+    MOV R1, 2
+    ADD R1, 5
+    MOV y, R1
+
+---
+
+# Notes
+- Enter each intermediate code statement one by one. End input by typing `exit`.  
+- The program generates a simple assembly-like target code using registers (`R0`, `R1`, …).  
+- Supported operators: `+` (ADD), `-` (SUB), `*` (MUL), `/` (DIV). Any unknown operator prints `???`.  
+- Ctrl+C can be used to stop the program if needed.  
+- Maximum 10 intermediate code lines are supported in this implementation.
+

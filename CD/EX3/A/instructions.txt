@@ -1,0 +1,60 @@
+# Expression Parser using Lex & Yacc (Quick Lab Sheet)
+============================================================
+
+# Requirements
+- Flex and Bison/Yacc installed (Linux/Mac) or Windows with Cygwin/WSL  
+- GCC installed  
+- Terminal/Command Prompt  
+- `expr.l` and `expr.y` files in the same directory
+
+---
+
+# Part 1: Compile
+yacc -d expr.y
+lex expr.l
+gcc y.tab.c lex.yy.c -o expr -lfl
+
+---
+
+# Part 2: Run
+./expr
+
+---
+
+# Sample Terminal Execution
+
+$ yacc -d expr.y
+$ lex expr.l
+$ gcc y.tab.c lex.yy.c -o expr -lfl
+$ ./expr
+
+Enter the expression:
+a = b + 5;
+
+Valid expression!
+
+$ ./expr
+
+Enter the expression:
+a = 5 + ;
+
+Invalid expression
+
+$ ./expr
+
+Enter the expression:
+x = (y - 2) * z;
+
+Valid expression!
+
+---
+
+# Notes
+- Run `yacc -d expr.y` first to generate `y.tab.c` and `y.tab.h`  
+- Then run `lex expr.l` to generate `lex.yy.c`  
+- Compile both with GCC using `-lfl` to link the Flex library  
+- Enter expressions in the format `id = expression ;`  
+- The parser checks for valid arithmetic expressions with identifiers, numbers, and operators  
+- Invalid expressions will print `Invalid expression`  
+- Ctrl+C can be used to stop the program if needed
+

@@ -1,0 +1,58 @@
+# Lexical Analyzer (Quick Lab Sheet)
+==========================================
+
+# Requirements
+- GCC installed (Linux/Mac) or any C compiler (Windows: MinGW recommended)  
+- Terminal/Command Prompt  
+- `add.c` file present in the same directory
+
+---
+
+# Part 1: Compile
+gcc lexical.c -o lexical
+# Note: Ensure no compilation errors
+
+---
+
+# Part 2: Run
+./lexical
+
+---
+
+# Sample Terminal Execution
+
+$ gcc lexical.c -o lexical
+$ ./lexical
+
+Lexeme          Token
+--------------------------
+#include        PREPROCESSOR
+<stdio.h>      HEADER FILE
+void            KEYWORD
+main            BUILT-IN FUNCTION
+int             KEYWORD
+a               VARIABLE
+b               VARIABLE
+sum             VARIABLE
+printf          BUILT-IN FUNCTION
+scanf           BUILT-IN FUNCTION
+=               Special Character
++               Special Character
+;               Special Character
+
+SYMBOL TABLE
+------------------------------
+Symbol          Address           Type
+a               0x563f0a0f8260   int
+b               0x563f0a0f8280   int
+sum             0x563f0a0f82a0   int
+
+---
+
+# Notes
+- Ensure `add.c` is in the same folder as `lexical.c`  
+- The program reads until it encounters `END` in `add.c`  
+- Ctrl+C to stop the program if needed  
+- The analyzer identifies keywords, variables, header files, built-in functions, and special characters  
+- The symbol table displays memory addresses allocated for variables  
+
