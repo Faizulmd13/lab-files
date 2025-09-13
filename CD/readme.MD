@@ -5,15 +5,16 @@ This folder contains the Compiler Design laboratory experiments. Each experiment
 ---
 
 ## 📂 Folder Structure
-- **EX1** → Lexical Analyzer using Lex  
-- **EX2** → Calculator implementation using Lex & Yacc  
-- **EX3a** → Program to check whether a string belongs to the grammar using Yacc  
-- **EX3b** → Program for shift-reduce parsing using Yacc  
-- **EX3c** → Program to check for ambiguity in grammar using Yacc  
-- **EX4** → Program for syntax-directed translation (postfix evaluation / simple translation scheme)  
-- **EX5** → Program for intermediate code generation (3-address code)  
-- **EX6** → Program for type checking using Yacc  
-- **EX7** → Program for symbol table construction  
+- [**EX1**](./EX1) → Lexical analyzer to recognize patterns in C (Identifiers, Constants, Comments, Operators, etc.) + Symbol table  
+- [**EX2**](./EX2) → Lexical analyzer using Lex tool  
+- [**EX3A**](./EX3/A) → Recognize valid arithmetic expressions using `+ - * /`  
+- [**EX3B**](./EX3/B) → Identifier checker (valid variable recognition)  
+- [**EX3C**](./EX3/C) → Calculator using Lex and Yacc (Arithmetic Expression Evaluator)  
+- [**EX4**](./EX4) → Generate three-address code using Lex and Yacc  
+- [**EX5**](./EX5) → Type checking using Lex and Yacc  
+- [**EX6**](./EX6) → Simple code optimization  
+- [**EX7**](./EX7) → Target code generation  
+
 
 ---
 
