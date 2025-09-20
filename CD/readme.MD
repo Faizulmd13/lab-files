@@ -10,7 +10,7 @@ This folder contains the Compiler Design laboratory experiments. Each experiment
 - [**EX3A**](./EX3/A) → Recognize valid arithmetic expressions using `+ - * /`  
 - [**EX3B**](./EX3/B) → Identifier checker (valid variable recognition)  
 - [**EX3C**](./EX3/C) → C Control Structures Syntax Checker
-- [**EX3C**](./EX3/D) → Calculator using Lex and Yacc (Arithmetic Expression Evaluator)  
+- [**EX3D**](./EX3/D) → Calculator using Lex and Yacc (Arithmetic Expression Evaluator)  
 - [**EX4**](./EX4) → Generate three-address code using Lex and Yacc  
 - [**EX5**](./EX5) → Type checking using Lex and Yacc  
 - [**EX6**](./EX6) → Simple code optimization  
