@@ -1,0 +1,63 @@
+# EX7 - Arithmetic Expression Evaluator using Lex & Yacc (Quick Lab Sheet)
+========================================================================
+
+# Requirements
+- Flex and Bison/Yacc installed (Linux/Mac) or Windows with Cygwin/WSL  
+- GCC installed  
+- Terminal/Command Prompt  
+- `arith.l` and `arith.y` files in the same directory
+
+---
+
+# Part 1: Compile
+yacc -d arith.y
+lex arith.l
+gcc y.tab.c lex.yy.c -o arith -ll
+
+---
+
+# Part 2: Run
+./arith
+
+---
+
+# Sample Terminal Execution
+
+$ yacc -d arith.y
+$ lex arith.l
+$ gcc y.tab.c lex.yy.c -o arith -ll
+$ ./arith
+
+Enter Any Arithmetic Expression which can have operations Addition, Subtraction, Multiplication, Division, Modulus and Round brackets:
+3 + 5 * 2
+
+Result = 13
+
+Entered arithmetic expression is Valid
+
+$ ./arith
+
+Enter Any Arithmetic Expression which can have operations Addition, Subtraction, Multiplication, Division, Modulus and Round brackets:
+(10 + 2) / 0
+
+Entered arithmetic expression is Invalid
+
+$ ./arith
+
+Enter Any Arithmetic Expression which can have operations Addition, Subtraction, Multiplication, Division, Modulus and Round brackets:
+7 % 3 + 4 * (2 - 1)
+
+Result = 8
+
+Entered arithmetic expression is Valid
+
+---
+
+# Notes
+- Run `yacc -d arith.y` first to generate `y.tab.c` and `y.tab.h`  
+- Then run `lex arith.l` to generate `lex.yy.c`  
+- Compile both with GCC using `-ll` to link the Flex library  
+- The program evaluates arithmetic expressions with `+`, `-`, `*`, `/`, `%`, and parentheses  
+- Invalid expressions will print `Entered arithmetic expression is Invalid`  
+- Ctrl+C can be used to stop the program if needed
+
