@@ -1,0 +1,47 @@
+Experiment 8B: UDP Performance Simulation using NS2
+Platform: Linux (NS2, Xgraph required)
+
+-----------------------------------------
+Step 1: Installation (if not already installed)
+-----------------------------------------
+Open terminal and run:
+
+    sudo apt update
+    sudo apt install ns2 xgraph
+
+Verify installations:
+
+    which ns
+    which xgraph
+
+-----------------------------------------
+Step 2: Simulation Execution
+-----------------------------------------
+1. Navigate to the folder containing udp_sim_graph.tcl:
+
+2. Run the NS2 simulation:
+
+       ns udp_sim.tcl
+
+3. Extract UDP flow data for plotting:
+
+       awk '$1=="+" && $3=="0" {print $2, $6}' udpout.tr > flow1.dat
+       awk '$1=="+" && $3=="1" {print $2, $6}' udpout.tr > flow2.dat
+       paste flow1.dat flow2.dat > udpout.dat
+
+4. Plot the results using Xgraph:
+
+       xgraph udpout.dat -geometry 600x400 &
+
+-----------------------------------------
+Step 3: Expected Output
+-----------------------------------------
+- `udpout.dat` shows two separate lines corresponding to UDP flows from nodes 0->3 and 1->3.
+- Xgraph opens a graph window plotting packet size vs time for both flows.
+
+-----------------------------------------
+Step 4: Exit
+-----------------------------------------
+- Close the Xgraph window after viewing.
+- Simulation is complete; all trace and data files remain in the folder.
+

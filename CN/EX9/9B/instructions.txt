@@ -1,0 +1,63 @@
+EX9B - Link State Routing (Octagon, Graph Output)
+===============================================
+
+# Requirements
+- NS2 installed
+- xgraph installed for plotting (install via: sudo apt-get install xgraph)
+- Terminal access
+
+---
+
+# Part 1: Save the Code
+
+1. Save the given script as:
+   linkstate.tcl
+
+---
+
+# Part 2: Run the Simulation
+
+2. Execute the script in the terminal:
+   ns linkstate.tcl
+
+   After completion you will see:
+   Simulation Completed. To plot received traffic at node 4:
+     awk '$1=="r" && $4=="4" {print $2, $6}' linkstate.tr > n4.dat
+     xgraph n4.dat -geometry 600x400 &
+
+---
+
+# Part 3: Generate and View Graph
+
+3. Extract traffic data for node 4:
+   awk '$1=="r" && $4=="4" {print $2, $6}' linkstate.tr > n4.dat
+
+4. Plot it:
+   xgraph n4.dat -geometry 600x400 &
+
+---
+
+# Understanding the Output
+
+- The simulation models an octagon (8-node ring) using link state routing.
+- A UDP/CBR source is at node 1, destination is node 4.
+- The link between node 3 and node 4 goes **down** at 1.0s and **up** at 2.0s.
+- The graph displays bytes received at node 4 over time, with a visible dip during the outage.
+
+---
+
+# Notes
+
+- No NAM animation is used or required.
+- All files (`linkstate.tcl`, `linkstate.tr`, `n4.dat`) are in the current directory.
+- You can plot `n4.dat` using other tools (e.g., matplotlib) if `xgraph` is unavailable.
+- For troubleshooting, ensure you have write permissions.
+
+---
+
+# Troubleshooting
+
+- If “command not found: ns”, install NS2.
+- If “command not found: xgraph”, install via sudo apt-get install xgraph.
+- If the graph window does not appear, check your graphical/X server setup.
+

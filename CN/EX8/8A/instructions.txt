@@ -1,0 +1,44 @@
+Experiment 8A: TCP Performance - NS2 Simulation
+Platform: Linux
+
+-----------------------------------------
+Step 1: Installation
+-----------------------------------------
+Install required tools if not already installed:
+
+    sudo apt update
+    sudo apt install ns2 nam xgraph
+
+-----------------------------------------
+Step 2: Compilation / Setup
+-----------------------------------------
+1. Open terminal in the folder containing the TCL file (tcp_sim.tcl).
+2. Ensure the TCL script is present (tcp_sim.tcl).
+
+-----------------------------------------
+Step 3: Execution
+-----------------------------------------
+1. Run the simulation:
+
+       ns tcp_sim.tcl
+
+2. This generates the output data file (tcpout.dat).
+
+3. Plot the results using xgraph:
+
+       xgraph tcpout.dat -geometry 600x400
+
+-----------------------------------------
+Step 4: Expected Output
+-----------------------------------------
+- Simulation runs without errors.
+- Graph of TCP performance is displayed.
+- Warnings about fonts (helvetica) can be ignored.
+
+-----------------------------------------
+Notes
+-----------------------------------------
+- Ensure the DISPLAY environment variable is set (usually :0 on Linux).
+- No additional software is required; only ns2, nam, and xgraph.
+- Always run the simulation before plotting with xgraph.
+

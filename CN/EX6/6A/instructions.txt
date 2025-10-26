@@ -1,0 +1,48 @@
+Experiment 6: ARP Simulation using TCP Sockets
+Platform: Cross-platform (Linux/Windows)
+
+-----------------------------------------
+Step 1: Compilation
+-----------------------------------------
+Open terminal/command prompt inside the EX6 folder and run:
+
+    javac Serverarp.java
+    javac Clientarp.java
+
+-----------------------------------------
+Step 2: Execution
+-----------------------------------------
+1. Start the server (keep it running):
+       java Serverarp
+
+2. Open another terminal (Linux) or another command prompt (Windows),
+   then run the client:
+       java Clientarp
+
+3. Enter one of the following IP addresses when prompted:
+       165.165.80.80
+       165.165.79.1
+
+-----------------------------------------
+Step 3: Expected Output
+-----------------------------------------
+If IP is found:
+    The Physical Address is: 6A:08:AA:C2
+    (or the corresponding MAC)
+
+If IP is not found:
+    No MAC will be returned.
+
+-----------------------------------------
+Step 4: Exit
+-----------------------------------------
+- Stop the server using Ctrl+C in its terminal.
+- Close the client after execution.
+
+-----------------------------------------
+Notes
+-----------------------------------------
+- Client and server must use the same port number (>1024).
+- Always start the server before running the client.
+- Works on both Linux and Windows.
+

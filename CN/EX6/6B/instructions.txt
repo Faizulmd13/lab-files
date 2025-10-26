@@ -1,0 +1,48 @@
+Experiment 6B: Reverse ARP Simulation using UDP Sockets
+Platform: Cross-platform (Linux/Windows)
+
+-----------------------------------------
+Step 1: Compilation
+-----------------------------------------
+Open terminal/command prompt inside the EX6/6B folder and run:
+
+    javac Serverrarp12.java
+    javac Clientrarp12.java
+
+-----------------------------------------
+Step 2: Execution
+-----------------------------------------
+1. Start the server (keep it running):
+       java Serverrarp12
+
+2. Open another terminal (Linux) or another command prompt (Windows),
+   then run the client:
+       java Clientrarp12
+
+3. Enter one of the following MAC addresses when prompted:
+       6A:08:AA:C2
+       8A:BC:E3:FA
+
+-----------------------------------------
+Step 3: Expected Output
+-----------------------------------------
+If MAC is found:
+    The Logical Address is(IP): 165.165.80.80
+    (or the corresponding IP)
+
+If MAC is not found:
+    The Logical Address is(IP): MAC address not found
+
+-----------------------------------------
+Step 4: Exit
+-----------------------------------------
+- Stop the server using Ctrl+C in its terminal.
+- Close the client after execution.
+
+-----------------------------------------
+Notes
+-----------------------------------------
+- Client and server must use the same port number (1309 here).
+- Always start the server before running the client.
+- Works on both Linux and Windows.
+

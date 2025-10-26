@@ -1,0 +1,33 @@
+Experiment: DCCP ACK Removal Simulation using STAILQ
+Platform: Linux
+
+-----------------------------------------
+Step 1: Compilation
+-----------------------------------------
+Open a terminal inside the folder containing dccp_agent.cpp and run:
+
+    g++ -std=c++11 -Wall -o dccp_agent dccp_agent.cpp
+
+-----------------------------------------
+Step 2: Execution
+-----------------------------------------
+Run the program:
+
+    ./dccp_agent
+
+-----------------------------------------
+Step 3: Expected Output
+-----------------------------------------
+Before removing ACKs:
+Queue: 0(ACK) 1(DATA) 2(ACK) 3(DATA) 4(ACK) 5(DATA)
+
+After removing ACKs (based on num_dup_acks_):
+Queue: 0(ACK) 1(DATA) 2(ACK) 3(DATA) 5(DATA)
+
+-----------------------------------------
+Step 4: Notes
+-----------------------------------------
+- num_dup_acks_ in main() controls how many ACKs are skipped before removal.
+- Program automatically frees memory for removed nodes.
+- No NS2, NAM, or external plotting tools required.
+

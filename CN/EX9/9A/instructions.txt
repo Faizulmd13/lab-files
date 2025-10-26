@@ -1,0 +1,63 @@
+EX9A - Link State Routing Protocol (Graph Output)
+=================================================
+
+# Requirements
+- NS2 (Network Simulator 2) installed
+- xgraph installed for graph visualization
+- Terminal or Command Prompt access
+
+---
+
+# Part 1: Compile / Run Simulation
+
+# Step 1: Save the script
+Save the provided code as:
+linkstate.tcl
+
+# Step 2: Run the simulation
+ns linkstate.tcl
+
+# Expected console output:
+Simulation Completed.
+To plot traffic received at node 3 over time, run these commands:
+  awk '$1=="r" && $4=="3" {print $2, $6}' linkstate.tr > linkstate.dat
+  xgraph linkstate.dat -geometry 600x400 &
+
+---
+
+# Part 2: Generate and View Graph
+
+# Step 3: Extract data from the trace file
+awk '$1=="r" && $4=="3" {print $2, $6}' linkstate.tr > linkstate.dat
+
+# Step 4: Plot the graph
+xgraph linkstate.dat -geometry 600x400 &
+
+---
+
+# Part 3: Understanding the Graph
+
+- The graph displays received packet bytes at node 3 over time.
+- At simulation time = 1.0s, link between nodes (1,2) goes down — packet flow drops.
+- At 2.0s, the same link comes back up — packet reception resumes.
+- Traffic ends at 4.5s, with simulation finishing at 5.0s.
+
+---
+
+# Notes
+- Works without NAM animation.
+- Creates the file: linkstate.tr  → complete trace data for analysis.
+- Output file: linkstate.dat      → filtered data for plotting.
+- Ensure you have write permissions in the folder.
+- If `xgraph` does not appear, check GUI permissions or run:
+  sudo apt-get install xgraph
+
+---
+
+# Troubleshooting
+- If you see “ns: command not found”, ensure NS2 is installed properly.
+- If graph does not appear, verify `xgraph` works by typing:
+  xgraph &
+- If trace file size is zero, re-run with:
+  rm linkstate.tr && ns linkstate.tcl
+
