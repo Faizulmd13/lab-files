@@ -1,0 +1,64 @@
+EX10 - CRC Generator & Checker (Quick Lab Sheet)
+===============================================
+
+# Requirements
+- Java JDK installed
+- Terminal/Command Prompt
+
+---
+
+# Part 1: Compile
+
+javac CRC_Gen.java
+# Note: Ignore any warnings unless there are errors
+
+---
+
+# Part 2: Run
+
+java CRC_Gen
+
+# Sample interaction:
+Enter number of data bits:
+7
+Enter data bits:
+1
+0
+1
+1
+0
+0
+1
+Enter number of bits in divisor:
+3
+Enter divisor bits:
+1
+0
+1
+Dividend (after appending 0's) are: 101100100
+CRC code: 
+101100111
+Enter CRC code of 9 bits:
+1
+0
+1
+1
+0
+0
+1
+0
+1
+CRC bits are: 101100101
+Error
+THANK YOU......
+
+---
+
+# Notes
+
+- Enter each bit (0 or 1) one per line as prompted.
+- After CRC code is generated, enter the received CRC code one bit per line for error checking.
+- “No Error” means successful validation; “Error” means the data or CRC bits have been changed.
+- To terminate the program, press Ctrl+C.
+- You can run the code on Windows, Linux, or macOS if JDK is installed.
+
